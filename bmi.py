@@ -11,15 +11,16 @@ class BMI:
         self.root = root
         self.root.title("Body Mass Index")
         self.root.geometry('495x430+400+100')  # Default size to open into
+        self.root.resizable(0, 0)
 
         # Header
-        title = Label(self.root, text="Body Mass Index", height=2, width=60, bg="#273746", fg="white", bd=5,
-                      relief=GROOVE, font=("arial 10 bold")).grid(row=0, column=0, columnspan=3, pady=5)
+        title = Label(self.root, text="BODY MASS INDEX", height=2, width=60, bg="#273746", fg="white", bd=5,
+                      relief=GROOVE, font=("serif 10 bold")).grid(row=0, column=0, columnspan=3, pady=5)
 
         # Footer
         self.statusVar = StringVar()
-        status = Entry(self.root, textvariable=self.statusVar, bd=10, font="arial 10 bold", relief=GROOVE, width=50,
-                       fg="blue").grid(row=14, column=0, columnspan=3, pady=20)
+        status = Entry(self.root, textvariable=self.statusVar, bd=10, font="arial 10 bold", relief=GROOVE, width=50, disabledforeground='blue',
+                       justify=CENTER, state='disabled').grid(row=14, column=0, columnspan=3, pady=20)
 
         # **************** All Variables **************** #
         self.idVar = StringVar()
@@ -55,7 +56,7 @@ class BMI:
         # BMI Display
         bmi_lbl = Label(self.root, text="BMI").grid(row=7, column=0)
         bmi_display = Entry(self.root, textvariable=self.bmiVar, width=26, font="arial 10 bold", bd=4, relief=SUNKEN,
-                            bg="black", fg="cyan").grid(row=7, column=1)
+                            disabledbackground="black", disabledforeground="cyan", state='disabled').grid(row=7, column=1)
 
         # Gender Radio Button
         self.select = StringVar()
